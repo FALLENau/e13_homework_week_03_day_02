@@ -1,0 +1,693 @@
+Last login: Mon Jun  5 11:22:52 on ttys002
+➜  ~ cd e13_work/week_03/day_01
+➜  day_01 git:(master) ✗ ls
+README.md          cinema_crud_sql_hw data
+➜  day_01 git:(master) ✗ cd cinema_crud_sql_hw 
+➜  cinema_crud_sql_hw git:(master) ✗ ls
+homework.md marvel.sql
+➜  cinema_crud_sql_hw git:(master) ✗ tom homework.md 
+zsh: command not found: tom
+➜  cinema_crud_sql_hw git:(master) ✗ atom homework.md 
+➜  cinema_crud_sql_hw git:(master) ✗ cd ..
+➜  day_01 git:(master) ✗ cd ..
+➜  week_03 git:(master) ✗ cd day_0
+cd: no such file or directory: day_0
+➜  week_03 git:(master) ✗ cd day_02
+➜  day_02 git:(master) touch pizza.rb
+➜  day_02 git:(master) ✗ git add .
+➜  day_02 git:(master) ✗ atom .
+➜  day_02 git:(master) ✗ mkdir spec
+➜  day_02 git:(master) ✗ cd pizza_shop 
+➜  pizza_shop git:(master) ✗ mkdir spec
+➜  pizza_shop git:(master) ✗ touch console.rb
+➜  pizza_shop git:(master) ✗ ruby console.rb
+
+From: /Users/Whitepaw/e13_work/week_03/day_02/pizza_shop/console.rb @ line 20 :
+
+    15:   "toppping" => "Meat Feast",
+    16:   "quantity" => 4
+    17:   })
+    18: 
+    19: binding.pry
+ => 20: nil
+
+[1] pry(main)> order1
+=> #<PizzaOrder:0x007fe057a0dfe0
+ @first_name="Luke",
+ @last_name="Skywalker",
+ @quantity=1,
+ @toppping="Pepperoni">
+[2] pry(main)> order2
+=> #<PizzaOrder:0x007fe057a0def0
+ @first_name="Darth",
+ @last_name="Vader",
+ @quantity=4,
+ @toppping="Meat Feast">
+[3] pry(main)> !!!
+➜  pizza_shop git:(master) ✗ git add .
+➜  pizza_shop git:(master) ✗ git commit -m "day 2"
+[master 9a452c4] day 2
+ 3 files changed, 32 insertions(+)
+ create mode 100644 pizza.rb
+ create mode 100644 pizza_shop/console.rb
+ create mode 100644 pizza_shop/pizza_order.rb
+➜  pizza_shop git:(master) ✗ git push
+Counting objects: 6, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (6/6), 741 bytes | 0 bytes/s, done.
+Total 6 (delta 0), reused 0 (delta 0)
+To github.com:FALLENau/e13_homework_week_03_day_02.git
+   29bfd94..9a452c4  master -> master
+➜  pizza_shop git:(master) ✗ createdb pizza_shop
+➜  pizza_shop git:(master) ✗ psql pizza_shop
+psql (9.6.2)
+Type "help" for help.
+
+pizza_shop=# \q
+➜  pizza_shop git:(master) ✗ mkdir db
+➜  pizza_shop git:(master) ✗ touch db/pizza_shop
+➜  pizza_shop git:(master) ✗ psql -d pizza_shop -f db/pizza_shop.sql 
+psql:db/pizza_shop.sql:1: NOTICE:  table "pizza_order" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+➜  pizza_shop git:(master) ✗ psql -d pizza_shop -f db/pizza_shop.sql 
+psql:db/pizza_shop.sql:1: NOTICE:  table "pizza_order" does not exist, skipping
+DROP TABLE
+psql:db/pizza_shop.sql:9: ERROR:  relation "pizza_orders" already exists
+➜  pizza_shop git:(master) ✗ gem install pg
+Fetching: pg-0.20.0.gem (100%)
+Building native extensions.  This could take a while...
+Successfully installed pg-0.20.0
+1 gem installed
+➜  pizza_shop git:(master) ✗ ruby console.rb
+
+From: /Users/Whitepaw/e13_work/week_03/day_02/pizza_shop/console.rb @ line 23 :
+
+    18: 
+    19: order1.save()
+    20: 
+    21: 
+    22: binding.pry
+ => 23: nil
+
+[1] pry(main)> ls
+self.methods: inspect  to_s
+locals: 
+  _   _dir_  _file_  _out_  order1
+  __  _ex_   _in_    _pry_  order2
+[2] pry(main)> or
+SyntaxError: unexpected keyword_or, expecting end-of-input
+[2] pry(main)> order1
+=> #<PizzaOrder:0x007fa02697eeb0
+ @first_name="Luke",
+ @last_name="Skywalker",
+ @quantity=1,
+ @toppping="Womp rats">
+[3] pry(main)> \q
+SyntaxError: unexpected $undefined, expecting end-of-input
+[3] pry(main)> !!!
+➜  pizza_shop git:(master) ✗ ruby console.rb
+
+From: /Users/Whitepaw/e13_work/week_03/day_02/pizza_shop/console.rb @ line 23 :
+
+    18: 
+    19: order1.save()
+    20: 
+    21: 
+    22: binding.pry
+ => 23: nil
+
+[1] pry(main)> ls
+self.methods: inspect  to_s
+locals: 
+  _   _dir_  _file_  _out_  order1
+  __  _ex_   _in_    _pry_  order2
+[2] pry(main)> PizzaOrder.all()
+NameError: undefined local variable or method `spl' for PizzaOrder:Class
+Did you mean?  sql
+from /Users/Whitepaw/e13_work/week_03/day_02/pizza_shop/pizza_order.rb:38:in `all'
+[3] pry(main)> !!!
+➜  pizza_shop git:(master) ✗ ruby console.rb
+
+From: /Users/Whitepaw/e13_work/week_03/day_02/pizza_shop/console.rb @ line 23 :
+
+    18: 
+    19: order1.save()
+    20: 
+    21: 
+    22: binding.pry
+ => 23: nil
+
+[1] pry(main)> PizzaOrder.all()
+=> #<PG::Result:0x007fc20892f578 status=PGRES_TUPLES_OK ntuples=3 nfields=5 cm[2] pry(main)> PizzaOrder.all().first()
+[2] pry(main)> PizzaOrder.all().first()
+=> {"id"=>"1",
+ "first_name"=>"Luke",
+ "last_name"=>"Skywalker",
+ "toppping"=>"Womp rats",
+ "quantity"=>"1"}
+[3] pry(main)> PizzaOrder.all().first().class
+=> Hash
+[4] pry(main)> !!!
+➜  pizza_shop git:(master) ✗ ruby console.rb
+
+From: /Users/Whitepaw/e13_work/week_03/day_02/pizza_shop/console.rb @ line 23 :
+
+    18: 
+    19: order1.save()
+    20: 
+    21: 
+    22: binding.pry
+ => 23: nil
+
+[1] pry(main)> ls
+self.methods: inspect  to_s
+locals: 
+  _   _dir_  _file_  _out_  order1
+  __  _ex_   _in_    _pry_  order2
+[2] pry(main)> PizzaOrder.all()
+=> [#<PizzaOrder:0x007fbc151bda90
+  @first_name="Luke",
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">,
+ #<PizzaOrder:0x007fbc151bd8d8
+  @first_name="Luke",
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">,
+ #<PizzaOrder:0x007fbc151bd770
+  @first_name="Luke",
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">,
+ #<PizzaOrder:0x007fbc151bd540
+  @first_name="Luke",
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">]
+[3] pry(main)> PizzaOrder.all()
+=> [#<PizzaOrder:0x007fbc1533e6a8
+  @first_name="Luke",
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">,
+ #<PizzaOrder:0x007fbc1533e518
+  @first_name="Luke",
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">,
+ #<PizzaOrder:0x007fbc1533e360
+  @first_name="Luke",
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">,
+ #<PizzaOrder:0x007fbc1533e1a8
+  @first_name="Luke",
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">]
+[4] pry(main)> PizzaOrder.all()
+=> [#<PizzaOrder:0x007fbc153e68a8
+  @first_name="Luke",
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">,
+ #<PizzaOrder:0x007fbc153e6790
+  @first_name="Luke",
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">,
+ #<PizzaOrder:0x007fbc153e6650
+  @first_name="Luke",
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">,
+ #<PizzaOrder:0x007fbc153e6510
+  @first_name="Luke",
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">]
+[5] pry(main)> !!!
+➜  pizza_shop git:(master) ✗ ruby console.rb
+
+From: /Users/Whitepaw/e13_work/week_03/day_02/pizza_shop/console.rb @ line 23 :
+
+    18: 
+    19: order1.save()
+    20: 
+    21: 
+    22: binding.pry
+ => 23: nil
+
+[1] pry(main)> PizzaOrder.all()
+=> [#<PizzaOrder:0x007fabca0392b0
+  @first_name="Luke",
+  @id=1,
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">,
+ #<PizzaOrder:0x007fabca039170
+  @first_name="Luke",
+  @id=2,
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">,
+ #<PizzaOrder:0x007fabca039058
+  @first_name="Luke",
+  @id=3,
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">,
+ #<PizzaOrder:0x007fabca038f40
+  @first_name="Luke",
+  @id=4,
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">,
+ #<PizzaOrder:0x007fabca038e00
+  @first_name="Luke",
+  @id=5,
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">]
+[2] pry(main)> order2
+=> #<PizzaOrder:0x007fabc94133a0
+ @first_name="Darth",
+ @id=0,
+ @last_name="Vader",
+ @quantity=4,
+ @toppping="Lava hot Feast">
+[3] pry(main)> !!!
+➜  pizza_shop git:(master) ✗ ruby console.rb
+
+From: /Users/Whitepaw/e13_work/week_03/day_02/pizza_shop/console.rb @ line 23 :
+
+    18: 
+    19: order1.save()
+    20: 
+    21: 
+    22: binding.pry
+ => 23: nil
+
+[1] pry(main)> PizzaOrder.all()
+=> [#<PizzaOrder:0x007fd789456718
+  @first_name="Luke",
+  @id=1,
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">,
+ #<PizzaOrder:0x007fd789456600
+  @first_name="Luke",
+  @id=2,
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">,
+ #<PizzaOrder:0x007fd7894564e8
+  @first_name="Luke",
+  @id=3,
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">,
+ #<PizzaOrder:0x007fd7894563d0
+  @first_name="Luke",
+  @id=4,
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">,
+ #<PizzaOrder:0x007fd789456290
+  @first_name="Luke",
+  @id=5,
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">,
+ #<PizzaOrder:0x007fd789456178
+  @first_name="Luke",
+  @id=6,
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">]
+[2] pry(main)> order2
+=> #<PizzaOrder:0x007fd789487520
+ @first_name="Darth",
+ @last_name="Vader",
+ @quantity=4,
+ @toppping="Lava hot Feast">
+[3] pry(main)> !!!
+➜  pizza_shop git:(master) ✗ ruby console.rb
+
+From: /Users/Whitepaw/e13_work/week_03/day_02/pizza_shop/console.rb @ line 23 :
+
+    18: 
+    19: order1.save()
+    20: 
+    21: 
+    22: binding.pry
+ => 23: nil
+
+[1] pry(main)> cd PizzaOrder
+[2] pry(PizzaOrder):1> result
+NameError: undefined local variable or method `result' for PizzaOrder:Class
+from (pry):1:in `__binding__'
+[3] pry(PizzaOrder):1> result.first()
+NameError: undefined local variable or method `result' for PizzaOrder:Class
+from (pry):2:in `__binding__'
+[4] pry(PizzaOrder):1> !!!
+➜  pizza_shop git:(master) ✗ ruby console.rb
+
+From: /Users/Whitepaw/e13_work/week_03/day_02/pizza_shop/console.rb @ line 23 :
+
+    18: 
+    19: order1.save()
+    20: 
+    21: 
+    22: binding.pry
+ => 23: nil
+
+[1] pry(main)> ls
+self.methods: inspect  to_s
+locals: 
+  _   _dir_  _file_  _out_  order1
+  __  _ex_   _in_    _pry_  order2
+[2] pry(main)> order1
+=> #<PizzaOrder:0x007f957f445298
+ @first_name="Luke",
+ @id=8,
+ @last_name="Skywalker",
+ @quantity=1,
+ @toppping="Womp rats">
+[3] pry(main)> order2
+=> #<PizzaOrder:0x007f957f4451d0
+ @first_name="Darth",
+ @last_name="Vader",
+ @quantity=4,
+ @toppping="Lava hot Feast">
+[4] pry(main)> !!!
+➜  pizza_shop git:(master) ✗ ruby console.rb
+
+From: /Users/Whitepaw/e13_work/week_03/day_02/pizza_shop/console.rb @ line 24 :
+
+    19: 
+    20: order1.save()
+    21: order2.save()
+    22: 
+    23: binding.pry
+ => 24: nil
+
+[1] pry(main)> ls
+self.methods: inspect  to_s
+locals: 
+  _   _dir_  _file_  _out_  order1
+  __  _ex_   _in_    _pry_  order2
+[2] pry(main)> PizzaOrder.all()
+=> [#<PizzaOrder:0x007fe1b6231348
+  @first_name="Luke",
+  @id=9,
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">,
+ #<PizzaOrder:0x007fe1b6231190
+  @first_name="Darth",
+  @id=10,
+  @last_name="Vader",
+  @quantity=4,
+  @toppping="Lava hot Feast">]
+[3] pry(main)> !!!
+➜  pizza_shop git:(master) ✗ ruby console.rb
+
+From: /Users/Whitepaw/e13_work/week_03/day_02/pizza_shop/console.rb @ line 24 :
+
+    19: 
+    20: order1.save()
+    21: order2.save()
+    22: 
+    23: binding.pry
+ => 24: nil
+
+[1] pry(main)> PizzaOrder.all()
+=> [#<PizzaOrder:0x007fe52bb4ef48
+  @first_name="Luke",
+  @id=11,
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">,
+ #<PizzaOrder:0x007fe52bb4ee30
+  @first_name="Darth",
+  @id=12,
+  @last_name="Vader",
+  @quantity=4,
+  @toppping="Lava hot Feast">]
+[2] pry(main)> order1.delete()
+=> nil
+[3] pry(main)> PizzaOrder.all()
+=> [#<PizzaOrder:0x007fe52c888600
+  @first_name="Darth",
+  @id=12,
+  @last_name="Vader",
+  @quantity=4,
+  @toppping="Lava hot Feast">]
+[4] pry(main)> !!!
+➜  pizza_shop git:(master) ✗ ruby console.rb
+
+From: /Users/Whitepaw/e13_work/week_03/day_02/pizza_shop/console.rb @ line 24 :
+
+    19: 
+    20: order1.save()
+    21: order2.save()
+    22: 
+    23: binding.pry
+ => 24: nil
+
+[1] pry(main)> PizzaOrder.all()
+=> [#<PizzaOrder:0x007f9f80bd57a0
+  @first_name="Luke",
+  @id=13,
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">,
+ #<PizzaOrder:0x007f9f80bd55e8
+  @first_name="Darth",
+  @id=14,
+  @last_name="Vader",
+  @quantity=4,
+  @toppping="Lava hot Feast">]
+[2] pry(main)> ls
+self.methods: inspect  to_s
+locals: 
+  _   _dir_  _file_  _out_  order1
+  __  _ex_   _in_    _pry_  order2
+[3] pry(main)> order2
+=> #<PizzaOrder:0x007f9f80c1cf60
+ @first_name="Darth",
+ @id=14,
+ @last_name="Vader",
+ @quantity=4,
+ @toppping="Lava hot Feast">
+[4] pry(main)> order2.first_name = Anakin
+NameError: uninitialized constant Anakin
+from (pry):3:in `<main>'
+[5] pry(main)> PizzaOrder.all()
+=> [#<PizzaOrder:0x007f9f80b1e078
+  @first_name="Luke",
+  @id=13,
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">,
+ #<PizzaOrder:0x007f9f80b1df38
+  @first_name="Darth",
+  @id=14,
+  @last_name="Vader",
+  @quantity=4,
+  @toppping="Lava hot Feast">]
+[6] pry(main)> order1.update()
+PG::SyntaxError: ERROR:  number of columns does not match number of values
+LINE 9:       (
+              ^
+from /Users/Whitepaw/e13_work/week_03/day_02/pizza_shop/pizza_order.rb:62:in `exec'
+[7] pry(main)> !!!
+➜  pizza_shop git:(master) ✗ ruby console.rb
+
+From: /Users/Whitepaw/e13_work/week_03/day_02/pizza_shop/console.rb @ line 24 :
+
+    19: 
+    20: order1.save()
+    21: order2.save()
+    22: 
+    23: binding.pry
+ => 24: nil
+
+[1] pry(main)> PizzaOrder.all()
+=> [#<PizzaOrder:0x007f83b3cf5a88
+  @first_name="Luke",
+  @id=15,
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">,
+ #<PizzaOrder:0x007f83b3cf5970
+  @first_name="Darth",
+  @id=16,
+  @last_name="Vader",
+  @quantity=4,
+  @toppping="Lava hot Feast">]
+[2] pry(main)> order2.first_name = Anakin
+NameError: uninitialized constant Anakin
+from (pry):2:in `<main>'
+[3] pry(main)> order2.first_name = 'Anakin'
+=> "Anakin"
+[4] pry(main)> PizzaOrder.all()
+=> [#<PizzaOrder:0x007f83b3c0f9c0
+  @first_name="Luke",
+  @id=15,
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">,
+ #<PizzaOrder:0x007f83b3c0f830
+  @first_name="Darth",
+  @id=16,
+  @last_name="Vader",
+  @quantity=4,
+  @toppping="Lava hot Feast">]
+[5] pry(main)> order2.update()
+=> nil
+[6] pry(main)> PizzaOrder.all()
+=> [#<PizzaOrder:0x007f83b3aaf440
+  @first_name="Luke",
+  @id=15,
+  @last_name="Skywalker",
+  @quantity=1,
+  @toppping="Womp rats">,
+ #<PizzaOrder:0x007f83b3aaf0f8
+  @first_name="Anakin",
+  @id=16,
+  @last_name="Vader",
+  @quantity=4,
+  @toppping="Lava hot Feast">]
+[7] pry(main)> !!!
+➜  pizza_shop git:(master) ✗ cd ..
+➜  day_02 git:(master) ✗ createdb bountyhub
+➜  day_02 git:(master) ✗ mkdir bounty_lab
+➜  day_02 git:(master) ✗ cd bounty_lab
+➜  bounty_lab git:(master) ✗ open .
+➜  bounty_lab git:(master) ✗ ls
+bounty.rb
+bounty_hunter_lab.md
+bounty_lab.zip
+console.rb
+db
+➜  bounty_lab git:(master) ✗ git add .
+➜  bounty_lab git:(master) ✗ git commit -m "bounty_lab"
+[master 06ab390] bounty_lab
+ 5 files changed, 167 insertions(+)
+ create mode 100644 bounty_lab/bounty.rb
+ create mode 100755 bounty_lab/bounty_hunter_lab.md
+ create mode 100644 bounty_lab/bounty_lab.zip
+ create mode 100644 bounty_lab/console.rb
+ create mode 100644 bounty_lab/db/bountyhub.sql
+➜  bounty_lab git:(master) ✗ git push
+Counting objects: 9, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (9/9), 4.78 KiB | 0 bytes/s, done.
+Total 9 (delta 0), reused 0 (delta 0)
+To github.com:FALLENau/e13_homework_week_03_day_02.git
+   9a452c4..06ab390  master -> master
+➜  bounty_lab git:(master) ✗ ruby console.rb
+/Users/Whitepaw/e13_work/week_03/day_02/bounty_lab/bounty.rb:79:in `exec': ERROR:  relation "bounty" does not exist (PG::UndefinedTable)
+LINE 1: DELETE FROM bounty
+                    ^
+	from /Users/Whitepaw/e13_work/week_03/day_02/bounty_lab/bounty.rb:79:in `delete_all'
+	from console.rb:4:in `<main>'
+➜  bounty_lab git:(master) ✗ psql -d bountyhub -f db/bountyhub.sql 
+psql:db/bountyhub.sql:1: NOTICE:  table "bounty" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+➜  bounty_lab git:(master) ✗ psql -d bountyhub -f db/bountyhub.sql
+DROP TABLE
+CREATE TABLE
+➜  bounty_lab git:(master) ✗ ruby console.rb
+
+From: /Users/Whitepaw/e13_work/week_03/day_02/bounty_lab/console.rb @ line 40 :
+
+    35: bounty2.save()
+    36: bounty3.save()
+    37: bounty4.save()
+    38: 
+    39: binding.pry
+ => 40: nil
+
+[1] pry(main)> bounty.all()
+NameError: undefined local variable or method `bounty' for main:Object
+Did you mean?  bounty4
+               bounty3
+               bounty2
+               bounty1
+from (pry):1:in `<main>'
+[2] pry(main)> bounty.all()
+NameError: undefined local variable or method `bounty' for main:Object
+Did you mean?  bounty4
+               bounty3
+               bounty2
+               bounty1
+from (pry):2:in `<main>'
+[3] pry(main)> ls
+self.methods: inspect  to_s
+locals: 
+  _      _ex_    _out_    bounty2
+  __     _file_  _pry_    bounty3
+  _dir_  _in_    bounty1  bounty4
+[4] pry(main)> \q
+SyntaxError: unexpected $undefined, expecting end-of-input
+[4] pry(main)> !!!
+➜  bounty_lab git:(master) ✗ sql      
+zsh: command not found: sql
+➜  bounty_lab git:(master) ✗ ruby console.rb
+
+From: /Users/Whitepaw/e13_work/week_03/day_02/bounty_lab/console.rb @ line 40 :
+
+    35: bounty2.save()
+    36: bounty3.save()
+    37: bounty4.save()
+    38: 
+    39: binding.pry
+ => 40: nil
+
+[1] pry(main)> ls
+self.methods: inspect  to_s
+locals: 
+  _      _ex_    _out_    bounty2
+  __     _file_  _pry_    bounty3
+  _dir_  _in_    bounty1  bounty4
+[2] pry(main)> Bounty.all()
+=> [#<Bounty:0x007fc3c69661a8
+  @bounty_value=10000,
+  @homeworld="Tatooine",
+  @id=5,
+  @name="Luke Skywalker",
+  @species="human">,
+ #<Bounty:0x007fc3c696fd20
+  @bounty_value=30000,
+  @homeworld="Aldraan",
+  @id=6,
+  @name="Leia Organa",
+  @species="human">,
+ #<Bounty:0x007fc3c696f5f0
+  @bounty_value=15000,
+  @homeworld="Kashyyyk",
+  @id=7,
+  @name="Chewbaccak",
+  @species="Wookiee">,
+ #<Bounty:0x007fc3c696f078
+  @bounty_value=16000,
+  @homeworld="Corellia",
+  @id=8,
+  @name="Han Solo",
+  @species="human">]
+[3] pry(main)> Bounty.find(7)
+=> #<Bounty:0x007fc3c6270600
+ @bounty_value=15000,
+ @homeworld="Kashyyyk",
+ @id=7,
+ @name="Chewbaccak",
+ @species="Wookiee">
+[4] pry(main)> 
